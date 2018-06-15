@@ -103,7 +103,7 @@ struct TestDep {
         dep.depends(x, occs.front());
     }
     S analyze() {
-        auto sccs(dep.analyze());
+        auto sccs(std::get<0>(dep.analyze()));
         for (auto &component : sccs) { std::sort(component.first.begin(), component.first.end()); }
         std::ostringstream ss;
         ss << "(" << sccs << ",[";
