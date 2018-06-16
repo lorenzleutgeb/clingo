@@ -205,7 +205,7 @@ TEST_CASE("ground-dependency", "[ground]") {
         auto &c(dep.add("c:-~a@2.", true));
         dep.provides(c, val(ID("c")));
         dep.depends(c, 2, val(ID("a")));
-        REQUIRE("([([a:-~b@1.],0),([a:-~c@1.],0),([b:-~a@1.],0),([c:-~a@2.],0)],[a@2:.,a@1:.,c@1:?,b@1:?])" == dep.analyze());
+        REQUIRE("([([a:-~b@1.],0),([a:-~c@1.],0),([c:-~a@2.],0),([b:-~a@1.],0)],[a@2:.,a@1:.,c@1:?,b@1:?])" == dep.analyze());
     }
 }
 
