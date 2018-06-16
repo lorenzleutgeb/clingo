@@ -302,7 +302,7 @@ std::tuple<typename Dependency<Stm, HeadOcc>::ComponentVec, UGTermVec, UGTermVec
     }
     auto head = phead.to_vec();
     head.erase(std::remove_if(head.begin(), head.end(), [&nhead](UGTerm const &term) { return nhead.find(term) != nhead.end(); }), head.end());
-    return { std::move(components), std::move(head), nhead.to_vec() };
+    return std::make_tuple( std::move(components), std::move(head), nhead.to_vec() );
 }
 // }}}
 
